@@ -1,0 +1,440 @@
+
+
+<aiml>
+    <srai>start</srai>
+  <category>
+      <pattern>START</pattern>
+      <template>Which of the following is MOST important to you in your career?
+          <think>
+            <set name="SoftwareDev">0</set>
+            <set name="DatabaseAdmin">0</set>
+            <set name="ComputerHardware">0</set>
+            <set name="ComputerSystem">0</set>
+            <set name="WebDev">0</set>
+            </think>
+          <reply>
+              <text>Money</text>
+              <postback>MONEY</postback>
+          </reply>
+          <reply>
+              <text>Freelance Opportunities</text>
+              <postback>FREELANCE</postback>
+          </reply>
+          <reply>
+              <text>Job Market Outlook</text>
+              <postback>OUTLOOK</postback>
+          </reply>
+          <reply>
+              <text>Work/Life Balance</text>
+              <postback>WORKLIFE</postback>
+          </reply>
+      </template>
+  </category>
+  
+  <category>
+      <pattern>MONEY</pattern>
+      <template><think><srai>SOFTWAREDEV</srai><srai>COMPUTERHARDWARE</srai><srai>SOFTWAREDEV</srai><srai>COMPUTERHARDWARE</srai></think><srai>SECONDIMPORTANCE</srai></template>
+  </category>
+  <category>
+      <pattern>FREELANCE</pattern>
+      <template><think><srai>WEBDEV</srai><srai>WEBDEV</srai></think><srai>SECONDIMPORTANCE</srai></template>
+  </category>
+  <category>
+      <pattern>OUTLOOK</pattern>
+      <template><think><srai>SOFTWAREDEV</srai><srai>WEBDEV</srai><srai>SOFTWAREDEV</srai><srai>WEBDEV</srai></think><srai>SECONDIMPORTANCE</srai></template>
+  </category>
+  <category>
+      <pattern>WORKLIFE</pattern>
+      <template><think><srai>COMPUTERHARDWARE</srai><srai>DATABASEADMIN</srai><srai>COMPUTERSYSTEM</srai><srai>COMPUTERHARDWARE</srai><srai>DATABASEADMIN</srai><srai>COMPUTERSYSTEM</srai></think><srai>SECONDIMPORTANCE</srai></template>
+  </category>
+  
+    <category>
+      <pattern>SECONDIMPORTANCE</pattern>
+      <template>Which of the following is SECOND MOST important to you in your career?
+          <reply>
+              <text>Money</text>
+              <postback>MONEY2</postback>
+          </reply>
+          <reply>
+              <text>Freelance Opportunities</text>
+              <postback>FREELANCE2</postback>
+          </reply>
+          <reply>
+              <text>Job Market Outlook</text>
+              <postback>OUTLOOK2</postback>
+          </reply>
+          <reply>
+              <text>Work/Life Balance</text>
+              <postback>WORKLIFE2</postback>
+          </reply>
+        </template>
+  </category>
+  
+  <category>
+      <pattern>MONEY2</pattern>
+      <template><think><srai>SOFTWAREDEV</srai><srai>COMPUTERHARDWARE</srai></think><srai>WORKENVIRONMENT</srai></template>
+  </category>
+  <category>
+      <pattern>FREELANCE2</pattern>
+      <template><think><srai>WEBDEV</srai></think><srai>WORKENVIRONMENT</srai></template>
+  </category>
+  <category>
+      <pattern>OUTLOOK2</pattern>
+      <template><think><srai>SOFTWAREDEV</srai><srai>WEBDEV</srai></think><srai>WORKENVIRONMENT</srai></template>
+  </category>
+  <category>
+      <pattern>WORKLIFE2</pattern>
+      <template><think><srai>COMPUTERHARDWARE</srai><srai>DATABASEADMIN</srai><srai>COMPUTERSYSTEM</srai></think><srai>WORKENVIRONMENT</srai></template>
+  </category>
+  
+  <category>
+      <pattern>WORKENVIRONMENT</pattern>
+      <template>Which of the following work environments appeals to you MOST?
+          <reply>
+              <text>Work in a team</text>
+              <postback>TEAM</postback>
+          </reply>
+          <reply>
+              <text>Balance of team and solo</text>
+              <postback>BALANCE</postback>
+          </reply>
+          <reply>
+              <text>Mostly solo</text>
+              <postback>SOLO</postback>
+          </reply>
+      </template>
+  </category>
+  
+  <category>
+      <pattern>TEAM</pattern>
+      <template><think><srai>SOFTWAREDEV</srai></think><srai>SPENDTIME</srai></template>
+  </category>
+  <category>
+      <pattern>BALANCE</pattern>
+      <template><think><srai>COMPUTERHARDWARE</srai><srai>DATABASEADMIN</srai></think><srai>SPENDTIME</srai></template>
+  </category>
+  <category>
+      <pattern>SOLO</pattern>
+      <template><think><srai>COMPUTERSYSTEM</srai><srai>WEBDEV</srai></think><srai>SPENDTIME</srai></template>
+  </category>
+  
+  <category>
+      <pattern>SPENDTIME</pattern>
+      <template>Given the choice, how do you MOST prefer to spend your time?
+          <reply>
+              <text>Writing code of some sort</text>
+              <postback>CODE</postback>
+          </reply>
+          <reply>
+              <text>Research and/or analysis</text>
+              <postback>ANALYSIS</postback>
+          </reply>
+          <reply>
+              <text>Coordinate with clients or other departments</text>
+              <postback>COORDINATE</postback>
+          </reply>
+          <reply>
+              <text>Critical/creative thinking or problem solving</text>
+              <postback>THINK</postback>
+          </reply>
+      </template>
+  </category>
+  
+  <category>
+      <pattern>CODE</pattern>
+      <template><think><srai>SOFTWAREDEV</srai><srai>WEBDEV</srai><srai>DATABASEADMINISTRATOR</srai><srai>SOFTWAREDEV</srai><srai>WEBDEV</srai><srai>DATABASEADMINISTRATOR</srai></think><srai>SPENDTIME2</srai></template>
+  </category>
+  <category>
+      <pattern>ANALYSIS</pattern>
+      <template><think><srai>COMPUTERSYSTEM</srai><srai>COMPUTERHARDWARE</srai><srai>DATABASEADMINISTRATOR</srai><srai>COMPUTERSYSTEM</srai><srai>COMPUTERHARDWARE</srai><srai>DATABASEADMINISTRATOR</srai></think><srai>SPENDTIME2</srai></template>
+  </category>
+  <category>
+      <pattern>COORDINATE</pattern>
+      <template><think><srai>COMPUTERSYSTEM</srai><srai>WEBDEV</srai><srai>COMPUTERSYSTEM</srai><srai>WEBDEV</srai></think><srai>SPENDTIME2</srai></template>
+  </category>
+  <category>
+      <pattern>THINK</pattern>
+      <template><think><srai>COMPUTERHARDWARE</srai><srai>SOFTWAREDEV</srai><srai>COMPUTERHARDWARE</srai><srai>SOFTWAREDEV</srai></think><srai>SPENDTIME2</srai></template>
+  </category>
+  
+  <category>
+      <pattern>SPENDTIME2</pattern>
+      <template>Given the choice, how do you SECOND MOST prefer to spend your time?
+          <reply>
+              <text>Writing code of some sort</text>
+              <postback>CODE2</postback>
+          </reply>
+          <reply>
+              <text>Research and/or analysis</text>
+              <postback>ANALYSIS2</postback>
+          </reply>
+          <reply>
+              <text>Coordinate with clients or other departments</text>
+              <postback>COORDINATE2</postback>
+          </reply>
+          <reply>
+              <text>Critical/creative thinking or problem solving</text>
+              <postback>THINK2</postback>
+          </reply>
+      </template>
+  </category>
+  
+  <category>
+      <pattern>CODE2</pattern>
+      <template><think><srai>SOFTWAREDEV</srai><srai>WEBDEV</srai><srai>DATABASEADMINISTRATOR</srai></think><srai>SALARY</srai></template>
+  </category>
+  <category>
+      <pattern>ANALYSIS2</pattern>
+      <template><think><srai>COMPUTERSYSTEM</srai><srai>COMPUTERHARDWARE</srai><srai>DATABASEADMINISTRATOR</srai></think><srai>SALARY</srai></template>
+  </category>
+  <category>
+      <pattern>COORDINATE2</pattern>
+      <template><think><srai>COMPUTERSYSTEM</srai><srai>WEBDEV</srai></think><srai>SALARY</srai></template>
+  </category>
+  <category>
+      <pattern>THINK2</pattern>
+      <template><think><srai>COMPUTERHARDWARE</srai><srai>SOFTWAREDEV</srai></think><srai>SALARY</srai></template>
+  </category>
+  
+  <category>
+      <pattern>SALARY</pattern>
+      <template>Is it important to you that the median salary for your career be more than $100,000 per year?
+          <reply>
+              <text>Yes</text>
+              <postback>SALARYYES</postback>
+          </reply>
+          <reply>
+              <text>No</text>
+              <postback>SALARYNO</postback>
+          </reply>
+      </template>
+  </category>
+  
+  <category>
+      <pattern>SALARYYES</pattern>
+      <template><think><srai>SOFTWAREDEV</srai><srai>COMPUTERHARDWARE</srai></think><srai>CODING</srai></template>
+  </category>
+  <category>
+      <pattern>SALARYNO</pattern>
+      <template><think><srai>COMPUTERSYSTEM</srai><srai>WEBDEV</srai><srai>DATABASEADMINISTRATOR</srai></think><srai>CODING</srai></template>
+  </category>
+  
+    <category>
+      <pattern>CODING</pattern>
+      <template>Do you want coding to be part of your day to day work?
+          <reply>
+              <text>Yes</text>
+              <postback>CODINGYES</postback>
+          </reply>
+          <reply>
+              <text>No</text>
+              <postback>CODINGNO</postback>
+          </reply>
+      </template>
+  </category>
+  
+  <category>
+      <pattern>CODINGYES</pattern>
+      <template><think><srai>SOFTWAREDEV</srai><srai>WEBDEV</srai><srai>DATABASEADMINISTRATOR</srai></think><srai>DATASETS</srai></template>
+  </category>
+  <category>
+      <pattern>CODINGNO</pattern>
+      <template><think><srai>COMPUTERSYSTEM</srai><srai>COMPUTERHARDWARE</srai></think><srai>DATASETS</srai></template>
+  </category>
+  
+     <category>
+      <pattern>DATASETS</pattern>
+      <template>Do you enjoy working with large data sets?
+          <reply>
+              <text>Yes</text>
+              <postback>DATASETSYES</postback>
+          </reply>
+          <reply>
+              <text>No</text>
+              <postback>DATASETSNO</postback>
+          </reply>
+      </template>
+  </category>
+  
+  <category>
+      <pattern>DATASETSYES</pattern>
+      <template><think><srai>COMPUTERSYSTEM</srai><srai>DATABASEADMINISTRATOR</srai></think><srai>EDUCATION</srai></template>
+  </category>
+  <category>
+      <pattern>DATASETSNO</pattern>
+      <template><think><srai>COMPUTERHARDWARE</srai><srai>SOFTWAREDEV</srai><srai>WEBDEV</srai></think><srai>EDUCATION</srai></template>
+  </category>
+  
+<category>
+  <pattern>EDUCATION</pattern>
+    <template>Are you open to pursuing further education after your Bachelor's degree, via certificates or a Master's degree?
+      <reply>
+          <text>Yes</text>
+          <postback>EDUYES</postback>
+      </reply>
+      <reply>
+          <text>No</text>
+          <postback>EDUNO</postback>
+      </reply>
+    </template>
+  </category>
+  
+  <category>
+      <pattern>EDUYES</pattern>
+      <template><think><srai>COMPUTERSYSTEM</srai><srai>DATABASEADMINISTRATOR</srai><srai>COMPUTERHARDWARE</srai></think><srai>HARDWARE</srai></template>
+  </category>
+  <category>
+      <pattern>EDUNO</pattern>
+      <template><think><srai>SOFTWAREDEV</srai><srai>WEBDEV</srai></think><srai>HARDWARE</srai></template>
+  </category>
+  
+  <category>
+  <pattern>HARDWARE</pattern>
+    <template>Do you want to work on computer hardware for your job?
+      <reply>
+          <text>Yes</text>
+          <postback>HARDWAREYES</postback>
+      </reply>
+      <reply>
+          <text>No</text>
+          <postback>HARDWARENO</postback>
+      </reply>
+    </template>
+  </category>
+  
+  <category>
+      <pattern>HARDWAREYES</pattern>
+      <template><think><srai>COMPUTERHARDWARE</srai><srai>COMPUTERHARDWARE</srai><srai>COMPUTERHARDWARE</srai></think><srai>GETMAX</srai></template>
+  </category>
+  <category>
+      <pattern>HARDWARENO</pattern>
+      <template><think><set name="ComputerHardware">0</set></think><srai>GETMAX</srai></template>
+  </category>
+  
+  <category>
+      <pattern>GETMAX</pattern>
+      <template>
+          <think><set name="max"><srai>XMAX <get name="SoftwareDev"></get> <get name="DatabaseAdmin"></get> <get name="ComputerSystem"></get> <get name="ComputerHardware"></get> <get name="WebDev"></get></srai></set></think>
+          <srai>DECISION</srai>
+      </template>
+  </category>
+  
+ <category>
+  <pattern>DECISION</pattern>
+    <template>
+        <condition name="max">
+            <li><value><get name="SoftwareDev"></get></value>You should become a software developer</li>
+            <li><value><get name="DatabaseAdmin"></get></value>You should become a database administrator</li>
+            <li><value><get name="ComputerHardware"></get></value>You should become a computer hardware engineer</li>
+            <li><value><get name="ComputerSystem"></get></value>You should become a computer systems analyst</li>
+            <li><value><get name="WebDev"></get></value>You should become a web developer</li>
+            <li>I'm not sure how to help you</li>
+        </condition>
+    </template>
+  </category>
+
+<category>
+    <pattern>XMAX *</pattern>
+    <template><star index="1" /></template>
+</category>    
+
+<category>
+    <pattern>XMAX * *</pattern>
+    <template><srai>XXMAX <star index="2" /> XS <star index="1" /></srai></template>
+</category>
+
+<category>
+    <pattern>XXMAX *  XS *</pattern>
+    <template><think><set var="matched"><srai>XGE <star index="1" /> XS <star index="2" /></srai></set></think>
+        <condition var="matched"><li value="TRUE"><star index="1" /></li><li><star index="2" /></li></condition>
+    </template>
+</category>
+
+<category>
+    <pattern>XXMAX * * XS *</pattern>
+    <template><think><set var="matched"><srai>XGE <star index="1" /> XS <star index="3" /></srai></set></think>
+    <condition var="matched"><li value="TRUE"><srai>XXMAX <star index="2" /> XS <star index="1" /></srai></li><li><srai>XXMAX <star index="2" /> XS <star index="3" /></srai></li></condition>
+    </template>
+</category>
+
+<category>
+    <pattern>XGE <set>number</set> XS <set>number</set></pattern>
+    <template><think><set var="matched"><srai>XEQ <star index="1" /> XS <star index="2" /></srai></set></think>
+        <condition var="matched">
+        <li value="TRUE">TRUE</li>
+        <li><srai>XGT <star index="1" /> XS <star index="2" /></srai></li>
+        </condition>
+    </template>
+</category>
+
+<category>
+    <pattern>XLT 0 XS 0</pattern>
+    <template>FALSE</template>
+</category>
+
+<category>
+    <pattern>XLT <set>number</set> XS 0</pattern>
+    <template>FALSE</template>
+</category>
+
+<category>
+    <pattern>XLT 0 XS <set>number</set></pattern>
+    <template>TRUE</template>
+</category>
+
+<category>
+    <pattern>XLT <set>number</set> XS <set>number</set></pattern>
+    <template><srai>XLT <map name="predecessor"><star index="1" /></map> XS <map name="predecessor"><star index="2" /></map></srai></template>
+</category>
+
+<category>
+    <pattern>XGT 0 XS 0</pattern>
+    <template>FALSE</template>
+</category>
+
+<category>
+    <pattern>XGT <set>number</set> XS 0</pattern>
+    <template>TRUE</template>
+</category>
+
+<category>
+    <pattern>XGT 0 XS <set>number</set></pattern>
+    <template>FALSE</template>
+</category>
+
+<category>
+    <pattern>XGT <set>number</set> XS <set>number</set></pattern>
+    <template><srai>XGT <map name="predecessor"><star index="1" /></map> XS <map name="predecessor"><star index="2" /></map></srai></template>
+</category>
+
+<category>
+    <pattern>XLE <set>number</set> XS <set>number</set></pattern>
+    <template><think><set var="matched"><srai>XEQ <star index="1" /> XS <star index="2" /></srai></set></think>
+        <condition var="matched">
+        <li value="TRUE">TRUE</li>
+        <li><srai>XLT <star index="1" /> XS <star index="2" /></srai></li>
+        </condition>
+    </template>
+</category>
+  
+  <category>
+      <pattern>SOFTWAREDEV</pattern>
+      <template><think><set name="SoftwareDev"><map name="successor"><get name="SoftwareDev"></get></map></set></think></template>
+  </category>
+  <category>
+      <pattern>DATABASEADMIN</pattern>
+      <template><think><set name="DatabaseAdmin"><map name="successor"><get name="DatabaseAdmin"></get></map></set></think></template>
+  </category>
+  <category>
+      <pattern>COMPUTERHARDWARE</pattern>
+      <template><think><set name="ComputerHardware"><map name="successor"><get name="ComputerHardware"></get></map></set></think></template>
+  </category>
+  <category>
+      <pattern>COMPUTERSYSTEM</pattern>
+      <template><think><set name="ComputerSystem"><map name="successor"><get name="ComputerSystem"></get></map></set></think></template>
+  </category>
+  <category>
+      <pattern>WEBDEV</pattern>
+      <template><think><set name="WebDev"><map name="successor"><get name="WebDev"></get></map></set></think></template>
+  </category>
+</aiml>
